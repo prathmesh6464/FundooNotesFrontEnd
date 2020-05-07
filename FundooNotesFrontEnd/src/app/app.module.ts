@@ -10,8 +10,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { MatIconModule } from '@angular/material/icon'; 
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
     
   ],
   providers: [],

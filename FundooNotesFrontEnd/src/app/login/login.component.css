@@ -5,16 +5,23 @@
 }
 
 .formbg {
+	
 	background-color: antiquewhite;
+}
+
+.form-size {
+	min-width: 20%;
+	min-height: 35%;
 }
 
 button {
 	background-color: dodgerblue;
 	margin: 6px;
+	text-align: center;
 }
 
 .title{
-text-align: center; background-color: dodgerblue;
+text-align: center; 
 padding: 15px;
 }
 

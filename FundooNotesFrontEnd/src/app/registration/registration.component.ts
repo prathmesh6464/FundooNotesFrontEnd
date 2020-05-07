@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
+  hide = true;
   constructor() { }
 
   ngOnInit(): void {
-  }
-
+  } 
+  
 }
