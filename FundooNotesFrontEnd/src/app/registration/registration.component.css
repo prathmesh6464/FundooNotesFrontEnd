@@ -2,6 +2,7 @@
 	width: 100%;
 	height: 100vh;
 	background-image: linear-gradient(28deg, royalblue 50%, dodgerblue 50%);
+	
 }
 
 .formbg {
@@ -10,15 +11,20 @@
 
 .form-size {
 	min-width: 27%;
+	min-height: 30%;
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-bottom: 2%;
 }
 
 button {
 	background-color: dodgerblue;	
+	justify-content: center;
 }
 
 .title{
 	text-align: center; 
-	padding: 1%;
+	padding: 3%;
 }
 
 .example-form {

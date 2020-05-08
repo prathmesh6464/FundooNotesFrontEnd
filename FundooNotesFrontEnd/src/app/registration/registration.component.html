@@ -3,8 +3,8 @@
     <mat-card class="formbg" class="form-size" fxLayout="column">
 
         <mat-card-title class="title">Register User</mat-card-title>
-
-        <form fxLayoutAlign="strech" fxLayout="column" >
+<!-- fxLayoutAlign="strech" fxLayout="column" -->
+        <form fxFlexFill>  
 
             <mat-form-field appearance="outline">
                 <mat-label>First name</mat-label>
@@ -17,7 +17,7 @@
                   First name is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-form-field appearance="outline">
                 <mat-label>Last name</mat-label>
                 <input matInput ngModel pattern="^[a-zA-Z]+$" [formControl]="lastNameFormControl" [errorStateMatcher]="matcher"
@@ -28,7 +28,8 @@
                 <mat-error *ngIf="lastNameFormControl.hasError('required')">
                   Last name is <strong>required</strong>
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> 
+            <br>
 
             <mat-form-field appearance="outline">
                 <mat-label>User name</mat-label>
@@ -41,19 +42,33 @@
                   User name is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-form-field appearance="outline">
-                <mat-label>Password</mat-label>                
-                <input matInput ngModel minlength="8" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" [type]="hide ? 'password' : 'text'" placeholder="Enter password">
-                <mat-hint>You can use letters, numbers and special characters</mat-hint>
-                <mat-error *ngIf="!passwordFormControl.hasError('length') && !passwordFormControl.hasError('required')">
-                    Password minimum length should be 8 characters
-                  </mat-error>
-                  <mat-error *ngIf="passwordFormControl.hasError('required')">
-                    Password is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
+              <mat-label>Email-id</mat-label>
+              <input matInput ngModel pattern="^[a-zA-Z][a-zA-Z0-9]+@[a-zA-Z.]+$" [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                     placeholder="Ex. abc@gmail.com">
+              <mat-hint>Please enter valid email-id</mat-hint>
+              <mat-error *ngIf="emailFormControl.hasError('pattern') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+           <br>
 
+           <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>                
+            <input matInput ngModel minlength="8" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" [type]="hide ? 'password' : 'text'" placeholder="Enter password">
+            <mat-hint>You can use letters, numbers and special characters</mat-hint>
+            <mat-error *ngIf="!passwordFormControl.hasError('length') && !passwordFormControl.hasError('required')">
+                Password minimum length should be 8 characters
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <mat-form-field appearance="outline">
                 <mat-label>Confirm password</mat-label>
                 <input matInput ngModel minlength="8" [formControl]="cofirmPasswordFormControl" [errorStateMatcher]="matcher" [type]="hide ? 'password' : 'text'" placeholder="Enter confirm password">
@@ -69,19 +84,8 @@
                 </mat-error>
             </mat-form-field>  
 
-            <mat-form-field appearance="outline">
-                <mat-label>Email-id</mat-label>
-                <input matInput ngModel pattern="^[a-zA-Z][a-zA-Z0-9]+@[a-zA-Z.]+$" [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                       placeholder="Ex. abc@gmail.com">
-                <mat-hint>Please enter valid email-id</mat-hint>
-                <mat-error *ngIf="emailFormControl.hasError('pattern') && !emailFormControl.hasError('required')">
-                  Please enter a valid email address
-                </mat-error>
-                <mat-error *ngIf="emailFormControl.hasError('required')">
-                  Email is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-
+          
+            <br> <br>
             <mat-form-field appearance="outline">
                 <mat-label>Mobile number</mat-label>
                 <input matInput ngModel pattern="^[7-9][0-9]{9}$" [formControl]="mobileNumberFormControl" [errorStateMatcher]="matcher"
@@ -93,7 +97,9 @@
                   Mobile number is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-
+            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button mat-raised-button type="submit">Register</button>    
 
         </form>
