@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
@@ -31,3 +30,4 @@ export class ForgetpasswordComponent implements OnInit {
   
     matcher = new MyErrorStateMatcher();
 }
+

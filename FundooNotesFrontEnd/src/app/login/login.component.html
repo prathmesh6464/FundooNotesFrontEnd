@@ -4,14 +4,27 @@
         <form fxLayoutAlign="strech" fxLayout="column"> 
             <mat-form-field appearance="outline">
                 <mat-label>User name</mat-label>
-                <input matInput placeholder="Enter user name">
+                <input matInput [formControl]="userNameFormControl" [errorStateMatcher]="matcher"
+                    placeholder="Ex. abc@gmail.com">
+                <mat-error *ngIf="userNameFormControl.hasError('email') && !userNameFormControl.hasError('required')">
+                  Please enter a valid user name
+                </mat-error>
+                <mat-error *ngIf="userNameFormControl.hasError('required')">
+                  User name is <strong>required</strong>
+                </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>Confirm password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter confirm password">
+                <mat-label>Password</mat-label>
+                <input matInput ngModel minlength="8" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" [type]="hide ? 'password' : 'text'" placeholder="Enter password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>               
                 </button>
+                <mat-error *ngIf="!passwordFormControl.hasError('length') && !passwordFormControl.hasError('required')">
+                    Password minimum length should be 8 characters
+                  </mat-error>
+                  <mat-error *ngIf="passwordFormControl.hasError('required')">
+                    Password is <strong>required</strong>
+                  </mat-error>
             </mat-form-field>
             <button mat-raised-button type="submit">Login</button> 
             <button mat-raised-button><a href="http://localhost:4200/registration">Register</a></button>            
