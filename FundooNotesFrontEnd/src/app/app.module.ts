@@ -14,6 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { MatIconModule } from '@angular/material/icon'; 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { UserRegistrationService } from './service/user-registration.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -36,10 +38,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatToolbarModule,
     MatIconModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [UserRegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
