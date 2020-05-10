@@ -1,4 +1,4 @@
-export class UserDetails {
+export class UserDetailsDto {
     firstName;
     lastName;
     userName;
