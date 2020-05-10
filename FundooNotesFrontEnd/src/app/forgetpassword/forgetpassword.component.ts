@@ -44,4 +44,3 @@ export class ForgetpasswordComponent implements OnInit {
       response.subscribe((data)=>this.message=data);
     }
 }
-

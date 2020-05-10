@@ -1,4 +1,4 @@
-export class ForgetPasswordDto {
+export class ForgetPasswordDto{
     emailId;
     constructor(emailId: String) {
         this.emailId=emailId;
