@@ -22,7 +22,7 @@ export class UserRegistrationService {
    }
 
    public userResetPassword(resetPasswordData: ResetPasswordDto): Observable<any> {
-    return this.http.put("http://localhost:8081/user/resetPassword/:token/:emailId", resetPasswordData);
+    return this.http.put("http://localhost:8081/user/resetPassword", resetPasswordData);
    }
 
    public forgetPassword(forgetPasswordDto: ForgetPasswordDto): Observable<any> {
