@@ -13,9 +13,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { MatIconModule } from '@angular/material/icon'; 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRegistrationService } from './service/user-registration.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 
 
@@ -39,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
     
   ],
   providers: [UserRegistrationService],
