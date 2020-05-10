@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators, MinLengthValidator} from '@angular/forms';
+import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators, MinLengthValidator} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { UserRegistrationService } from '../service/user-registration.service';
+import { LoginDto } from '../dto/LoginDto';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -16,8 +19,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   hide=true;
-  constructor() { }
+
+  constructor(private loginApiService: UserRegistrationService, private snakeBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -34,4 +39,17 @@ export class LoginComponent implements OnInit {
   
   matcher = new MyErrorStateMatcher();
 
+  message: any;
+
+  userLoginFormGroup = new FormGroup({
+    userName: this.userNameFormControl,
+    password: this.passwordFormControl 
+  });
+  
+  loginNow() {
+    let response = this.loginApiService.userLogin(new LoginDto(this.userLoginFormGroup.get('userName').value, 
+    this.userLoginFormGroup.get('password').value)); 
+    response.subscribe((data)=>this.message=data);
+
+    }
 }
