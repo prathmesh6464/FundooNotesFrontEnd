@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserDetails } from '../dto/UserDetails'
+import { UserDetailsDto} from '../dto/UserRegistrationDto';
+import { LoginDto } from '../dto/LoginDto';
+import { ResetPasswordDto } from '../dto/ResetPasswordDto';
+import { ForgetPasswordDto } from '../dto/ForgetPasswordDto';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +13,19 @@ export class UserRegistrationService {
 
   constructor(private http: HttpClient) { }
 
-  //userDetails = new UserDetails("","","","","","");
-  public doRegistration(userDetails: UserDetails) {
-    return this.http.post("http://localhost:8081/user/userRegistration",userDetails, {responseType: 'text' as 'json'});
+    public doRegistration(userDetails: UserDetailsDto): Observable<any> {
+    return this.http.post("http://localhost:8081/user/userRegistration",userDetails);
   }
+
+   public userLogin(userLoginData: LoginDto): Observable<any> {
+    return this.http.post("http://localhost:8081/user/userLogin",userLoginData);
+   }
+
+   public userResetPassword(resetPasswordData: ResetPasswordDto): Observable<any> {
+    return this.http.put("http://localhost:8081/user/resetPassword/:token/:emailId", resetPasswordData);
+   }
+
+   public forgetPassword(forgetPasswordDto: ForgetPasswordDto): Observable<any> {
+    return this.http.post("http://localhost:8081/user/forgetPassword", forgetPasswordDto);
+   }
 }
