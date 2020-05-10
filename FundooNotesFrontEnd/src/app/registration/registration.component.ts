@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators, MinLengthValidator, PatternValidator, FormGroup, FormGroupName} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { UserDetails } from '../dto/UserDetails'
+import { UserDetailsDto } from '../dto/UserRegistrationDto'
 import { UserRegistrationService } from '../service/user-registration.service';
 
 
@@ -21,8 +21,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class RegistrationComponent implements OnInit {
 
   hide = true;
-  
- // userDetails = new UserDetails();
 
   constructor(private service: UserRegistrationService) { }
 
@@ -50,8 +48,9 @@ export class RegistrationComponent implements OnInit {
   );
 
   cofirmPasswordFormControl= new FormControl('',
-    Validators.required,
-    MinLengthValidator.apply,  
+    Validators.required,    
+    MinLengthValidator.apply,
+    
   );
 
   emailFormControl= new FormControl('', 
@@ -83,7 +82,7 @@ export class RegistrationComponent implements OnInit {
 
   
   public registerNow(){
-    let response = this.service.doRegistration( new UserDetails(this.userRegistrationForm.get("firstName").value,
+    let response = this.service.doRegistration( new UserDetailsDto(this.userRegistrationForm.get("firstName").value,
     this.userRegistrationForm.get("lastName").value, this.userRegistrationForm.get("userName").value,
     this.userRegistrationForm.get("password").value, this.userRegistrationForm.get("mobileNumber").value,
     this.userRegistrationForm.get("emailId").value));
