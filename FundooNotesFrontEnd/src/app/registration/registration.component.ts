@@ -81,7 +81,6 @@ export class RegistrationComponent implements OnInit {
     this.userRegistrationForm.get("lastName").value, this.userRegistrationForm.get("userName").value,
     this.userRegistrationForm.get("password").value, this.userRegistrationForm.get("mobileNumber").value,
     this.userRegistrationForm.get("emailId").value));
-    response.subscribe((data)=>this.message=data);
-    this.snackBar.open(this.message, this.message.action, {duration: 5000});
+    response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000}));
   }
 }

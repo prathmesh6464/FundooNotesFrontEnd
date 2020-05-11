@@ -48,8 +48,7 @@ export class ResetpasswordComponent implements OnInit {
   resetPasswordNow() {
     let response = this.userResetPasswordService.userResetPassword(new ResetPasswordDto(
       this.userResetPasswordGroup.get('password').value, this.userResetPasswordGroup.get('confirmPassword').value));
-      response.subscribe((data)=>this.message=data); 
-      this.snackBar.open(this.message, this.message.action, {duration: 5000});
+      response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000}));
   }
 
 }

@@ -40,7 +40,7 @@ export class ForgetpasswordComponent implements OnInit {
   
     forgetPassword(){
       let response = this.forgetPasswordService.forgetPassword(new ForgetPasswordDto(this.forgetPasswordGroup.get('emailId').value));
-      response.subscribe((data)=>this.message=data);
-      this.snackBar.open(this.message, this.message.action, {duration: 5000});
+      response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000}));
+      
     }
 }

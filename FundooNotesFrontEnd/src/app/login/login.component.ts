@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
   loginNow() {
     let response = this.loginApiService.userLogin(new LoginDto(this.userLoginFormGroup.get('userName').value, 
     this.userLoginFormGroup.get('password').value)); 
-    response.subscribe((data)=>this.message=data);
-    this.snackBar.open(this.message, this.message.action, {duration: 5000});
+    response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000}));
+    
     }
 }
