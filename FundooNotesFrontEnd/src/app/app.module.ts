@@ -16,7 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRegistrationService } from './service/user-registration.service';
 import { HttpClientModule } from '@angular/common/http';
-import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DashBoardComponent } from './dash-board/dash-board.component'
 
 
 
@@ -25,7 +26,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     AppComponent,
     LoginComponent,
     routingComponents,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    DashBoardComponent
   ],
   imports: [
     BrowserModule,

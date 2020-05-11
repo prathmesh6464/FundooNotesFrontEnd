@@ -21,8 +21,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginComponent implements OnInit {
 
   hide=true;
+  message: any;
+  matcher = new MyErrorStateMatcher();
 
-  constructor(private loginApiService: UserRegistrationService, private snakeBar: MatSnackBar) { }
+  constructor(private loginApiService: UserRegistrationService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -35,11 +37,7 @@ export class LoginComponent implements OnInit {
   passwordFormControl = new FormControl('',
   Validators.required,
   MinLengthValidator.apply,
-  );
-  
-  matcher = new MyErrorStateMatcher();
-
-  message: any;
+  );  
 
   userLoginFormGroup = new FormGroup({
     userName: this.userNameFormControl,
@@ -50,6 +48,6 @@ export class LoginComponent implements OnInit {
     let response = this.loginApiService.userLogin(new LoginDto(this.userLoginFormGroup.get('userName').value, 
     this.userLoginFormGroup.get('password').value)); 
     response.subscribe((data)=>this.message=data);
-
+    this.snackBar.open(this.message, this.message.action, {duration: 5000});
     }
 }
