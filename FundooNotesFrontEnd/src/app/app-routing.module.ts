@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-import { DashBoardComponent } from './dash-board/dash-board.component';
+import { DashBoardComponent } from './dash-board/board.component';
 
 const routes: Routes = [{path:'', component:LoginComponent},
 {path:'user/forgetpassword', component:ForgetpasswordComponent},
