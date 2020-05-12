@@ -5,4 +5,8 @@ export class ResetPasswordDto {
          this.password = password;
          this.confirmPassword = confirmPassword;
      }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1.Development
