@@ -5,8 +5,4 @@ export class LoginDto {
         this.userName=userName;
         this.password=password;
     }   
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1.Development
