@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators, MinLengthValidator} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { UserRegistrationService } from '../service/user-registration.service';
+import { UserService } from '../service/user.service';
 import { LoginDto } from '../dto/LoginDto';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -21,8 +21,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginComponent implements OnInit {
 
   hide=true;
+  message: any;
+  matcher = new MyErrorStateMatcher();
 
-  constructor(private loginApiService: UserRegistrationService, private snakeBar: MatSnackBar) { }
+  constructor(private loginApiService: UserService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -34,22 +36,21 @@ export class LoginComponent implements OnInit {
 
   passwordFormControl = new FormControl('',
   Validators.required,
-  MinLengthValidator.apply,
-  );
   
-  matcher = new MyErrorStateMatcher();
-
-  message: any;
+  );  
 
   userLoginFormGroup = new FormGroup({
     userName: this.userNameFormControl,
     password: this.passwordFormControl 
   });
+
+
   
   loginNow() {
     let response = this.loginApiService.userLogin(new LoginDto(this.userLoginFormGroup.get('userName').value, 
     this.userLoginFormGroup.get('password').value)); 
-    response.subscribe((data)=>this.message=data);
-
+    response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000, 
+    verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']}));
+   
     }
 }

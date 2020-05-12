@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators, MinLengthValidator, EmailValidator, FormGroup} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { UserRegistrationService } from '../service/user-registration.service';
+import { UserService } from '../service/user.service';
 import { ResetPasswordDto } from '../dto/ResetPasswordDto';
-import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -13,18 +13,19 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-
 @Component({
   selector: 'app-resetpassword',
   templateUrl: './resetpassword.component.html',
   styleUrls: ['./resetpassword.component.css']
 })
-export class ResetpasswordComponent implements OnInit {
-  hide=true;
 
-  message;
+export class ResetpasswordComponent implements OnInit {
+
+  hide=true;
+  message: any;
+  matcher = new MyErrorStateMatcher();
   
-  constructor(private userResetPasswordService: UserRegistrationService) { }
+  constructor(private userResetPasswordService: UserService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -44,12 +45,11 @@ export class ResetpasswordComponent implements OnInit {
     confirmPassword: this.cofirmPasswordFormControl,
   });
   
-  matcher = new MyErrorStateMatcher();
-
   resetPasswordNow() {
     let response = this.userResetPasswordService.userResetPassword(new ResetPasswordDto(
       this.userResetPasswordGroup.get('password').value, this.userResetPasswordGroup.get('confirmPassword').value));
-      response.subscribe((data)=>this.message=data); 
+      response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000, 
+        verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']}));
   }
 
 }

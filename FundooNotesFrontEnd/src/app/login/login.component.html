@@ -1,10 +1,8 @@
-<div  class="title">
-  <h1>{{message}}</h1>
-</div>
 <div fxLayoutAlign="center center" class="loginfx" fxFlexFill > 
     <mat-card class="formbg" class="form-size">
         <mat-card-title class="title">Please Login</mat-card-title>
         <form fxLayoutAlign="strech" fxLayout="column"> 
+
             <mat-form-field appearance="outline">
                 <mat-label>User name</mat-label>
                 <input matInput [formControl]="userNameFormControl" [errorStateMatcher]="matcher"
@@ -16,6 +14,7 @@
                   User name is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
+
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
                 <input matInput ngModel minlength="8" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" [type]="hide ? 'password' : 'text'" placeholder="Enter password">
@@ -29,10 +28,11 @@
                     Password is <strong>required</strong>
                   </mat-error>
             </mat-form-field>
+            
             <button mat-raised-button type="submit" (click)="loginNow()">Login</button> 
-            <button mat-raised-button><a href="http://localhost:4200/registration">Register</a></button>            
-            <a href="http://localhost:4200/forgetpassword">
-                Forget Password ? 
+            <button mat-raised-button><a href="http://localhost:4200/user/registration">Register</a></button>            
+            <a href="http://localhost:4200/user/forgetpassword">
+                Forget Password ?
             </a>            
         </form>
     </mat-card>
