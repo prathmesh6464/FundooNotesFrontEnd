@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators, MinLengthValidator, PatternValidator, FormGroup, FormGroupName} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { UserDetailsDto } from '../dto/UserRegistrationDto'
-import { UserRegistrationService } from '../service/user-registration.service';
+import { UserService } from '../service/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -25,7 +25,7 @@ export class RegistrationComponent implements OnInit {
   message: any;
   matcher = new MyErrorStateMatcher();
 
-  constructor(private service: UserRegistrationService, private snackBar: MatSnackBar) { }
+  constructor(private service: UserService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void { }
 
@@ -81,6 +81,7 @@ export class RegistrationComponent implements OnInit {
     this.userRegistrationForm.get("lastName").value, this.userRegistrationForm.get("userName").value,
     this.userRegistrationForm.get("password").value, this.userRegistrationForm.get("mobileNumber").value,
     this.userRegistrationForm.get("emailId").value));
-    response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000}));
+    response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000, 
+      verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']}));
   }
 }
