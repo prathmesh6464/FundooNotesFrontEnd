@@ -14,7 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { MatIconModule } from '@angular/material/icon'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserRegistrationService } from './service/user-registration.service';
+import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DashBoardComponent } from './dash-board/dash-board.component'
@@ -46,7 +46,7 @@ import { DashBoardComponent } from './dash-board/dash-board.component'
     MatSnackBarModule
     
   ],
-  providers: [UserRegistrationService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
