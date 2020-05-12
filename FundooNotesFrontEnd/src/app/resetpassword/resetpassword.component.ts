@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators, MinLengthValidator, EmailValidator, FormGroup} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { UserRegistrationService } from '../service/user-registration.service';
+import { UserService } from '../service/user.service';
 import { ResetPasswordDto } from '../dto/ResetPasswordDto';
 import { MatSnackBar } from '@angular/material/snack-bar'
 
@@ -25,7 +25,7 @@ export class ResetpasswordComponent implements OnInit {
   message: any;
   matcher = new MyErrorStateMatcher();
   
-  constructor(private userResetPasswordService: UserRegistrationService, private snackBar: MatSnackBar) { }
+  constructor(private userResetPasswordService: UserService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -48,7 +48,8 @@ export class ResetpasswordComponent implements OnInit {
   resetPasswordNow() {
     let response = this.userResetPasswordService.userResetPassword(new ResetPasswordDto(
       this.userResetPasswordGroup.get('password').value, this.userResetPasswordGroup.get('confirmPassword').value));
-      response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000}));
+      response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000, 
+        verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']}));
   }
 
 }
