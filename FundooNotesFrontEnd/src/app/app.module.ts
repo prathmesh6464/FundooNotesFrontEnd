@@ -17,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { DashBoardComponent } from './dash-board/board.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { DashBoardComponent } from './dash-board/board.component';
     LoginComponent,
     routingComponents,
     ResetpasswordComponent,
-    DashBoardComponent
+    
   ],
   imports: [
     BrowserModule,
