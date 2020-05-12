@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { UserRegistrationService } from '../service/user-registration.service';
+import { UserService } from '../service/user.service';
 import { ForgetPasswordDto } from '../dto/ForgetPasswordDto';
 import { MatSnackBar } from '@angular/material/snack-bar'
 
@@ -24,7 +24,7 @@ export class ForgetpasswordComponent implements OnInit {
   message;
   matcher = new MyErrorStateMatcher();
 
-  constructor(private forgetPasswordService: UserRegistrationService, private snackBar: MatSnackBar) { }
+  constructor(private forgetPasswordService: UserService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     }
@@ -40,7 +40,9 @@ export class ForgetpasswordComponent implements OnInit {
   
     forgetPassword(){
       let response = this.forgetPasswordService.forgetPassword(new ForgetPasswordDto(this.forgetPasswordGroup.get('emailId').value));
-      response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000}));
+      
+      response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000, 
+       verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']}));     
       
     }
 }
