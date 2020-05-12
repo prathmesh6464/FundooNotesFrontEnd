@@ -1,15 +1,7 @@
-<div>
-  <h1>{{message}}</h1>
-</div>
-
 <div fxLayoutAlign="center center" fxFlexFill class="registrationfx" >
-
     <mat-card class="formbg" class="form-size" fxLayout="column" >
-
         <mat-card-title class="title">Register User</mat-card-title>
-<!-- fxLayoutAlign="strech" fxLayout="column" -->
         <form>  
-
             <mat-form-field appearance="outline">
                 <mat-label>First name</mat-label>
                 <input matInput ngModel pattern="^[a-zA-Z]+$" [formControl]="firstNameFormControl" [errorStateMatcher]="matcher"
@@ -111,4 +103,3 @@
     </mat-card>
     
 </div>
-
