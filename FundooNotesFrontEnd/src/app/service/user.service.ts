@@ -28,8 +28,4 @@ export class UserService {
    public forgetPassword(forgetPasswordDto: ForgetPasswordDto): Observable<any> {
     return this.http.post("http://localhost:8081/user/forgetPassword", forgetPasswordDto);
    }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1.Development
