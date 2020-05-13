@@ -4,6 +4,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import { UserDetailsDto } from '../dto/UserRegistrationDto'
 import { UserService } from '../service/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -49,7 +50,7 @@ export class RegistrationComponent implements OnInit {
   MinLengthValidator.apply,
   );
 
-  cofirmPasswordFormControl= new FormControl('',
+  confirmPasswordFormControl= new FormControl('',
     Validators.required,    
     MinLengthValidator.apply,
     
@@ -70,7 +71,7 @@ export class RegistrationComponent implements OnInit {
   lastName: this.lastNameFormControl, 
   userName: this.userNameFormControl,
   password: this.passwordFormControl,
-  cofirmPassword: this.cofirmPasswordFormControl,
+  confirmPassword: this.confirmPasswordFormControl,
   mobileNumber: this.mobileNumberFormControl,
   emailId: this.emailFormControl
 
@@ -81,7 +82,14 @@ export class RegistrationComponent implements OnInit {
     this.userRegistrationForm.get("lastName").value, this.userRegistrationForm.get("userName").value,
     this.userRegistrationForm.get("password").value, this.userRegistrationForm.get("mobileNumber").value,
     this.userRegistrationForm.get("emailId").value));
-    response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000, 
-      verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']}));
+    
+    if ( this.userRegistrationForm.get("password").value !== this.userRegistrationForm.get("confirmPassword").value ) {
+      this.message = "Password and confirm Password not matched";
+      this.snackBar.open(this.message, this.message.action, {duration: 5000, 
+        verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']});
+    }else {
+      response.subscribe((data)=>this.snackBar.open(this.message=data, this.message.action, {duration: 5000, 
+        verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']}));
+    }
   }
 }
