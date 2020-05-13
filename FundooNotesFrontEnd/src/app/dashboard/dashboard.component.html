@@ -1,12 +1,38 @@
 <mat-toolbar>
-   <div> <mat-toolbar-row>
+  <mat-toolbar-row>
+   <div>
+    <mat-toolbar-row>
       <button mat-icon-button>
         <mat-icon >menu</mat-icon>
       </button>
       <img src="..\\assets\\images\\keep_48dp.png">
       <label style="color: yellowgreen;">Fundoo<span style="color:gold">Notes</span></label>
-     
-      
-    </mat-toolbar-row>
+      <!-- <input matInput  placeholder="Search" autocomplete="off" >  -->
+      <mat-form-field appearance="outline">
+        <label> <button mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button></label>
+        <input matInput placeholder="Search">
+    </mat-form-field>
+      </mat-toolbar-row>
   </div>
+  <div>
+    <mat-toolbar-row>
+    
+    <button mat-icon-button>
+      <mat-icon >refresh</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon >view_list</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon >settings</mat-icon>
+    </button>
+    
+    <button mat-icon-button>
+      <mat-icon >account_circle</mat-icon>
+    </button>
+  </mat-toolbar-row>
+  </div>
+</mat-toolbar-row>
   </mat-toolbar>
