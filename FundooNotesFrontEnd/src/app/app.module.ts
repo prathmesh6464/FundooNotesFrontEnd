@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-import { MatIconModule } from '@angular/material/icon'; 
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +21,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     routingComponents,
     ResetpasswordComponent,
     DashboardComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -46,8 +47,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     HttpClientModule,
     MatSnackBarModule,
     MatListModule,
-    MatSidenavModule
-    
+    MatSidenavModule,
+
+
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
