@@ -1,8 +1,12 @@
 <div fxLayoutAlign="center center" fxFlexFill class="registrationfx">
   <mat-card class="formbg" class="form-size" fxLayout="column">
+    <mat-card-title class="title">
+      <img src="..\\assets\\images\\keep_48dp.png">
+      <label style="color: dodgerblue;"> Fundoo<span style="color:gold">Notes</span></label>
+    </mat-card-title>
     <mat-card-title class="title">Register User</mat-card-title>
     <form>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" style="margin-right: 7%;">
         <mat-label>First name</mat-label>
         <input matInput ngModel pattern="^[a-zA-Z]+$" [formControl]="firstNameFormControl" [errorStateMatcher]="matcher"
           placeholder="Please enter first name">
@@ -13,8 +17,8 @@
           First name is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <mat-form-field appearance="outline">
+
+      <mat-form-field appearance="outline" style="margin-right: 7%;">
         <mat-label>Last name</mat-label>
         <input matInput ngModel pattern="^[a-zA-Z]+$" [formControl]="lastNameFormControl" [errorStateMatcher]="matcher"
           placeholder="Please enter first name">
@@ -27,7 +31,7 @@
       </mat-form-field>
       <br>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" style="margin-right: 7%;">
         <mat-label>User name</mat-label>
         <input matInput ngModel pattern="^[a-zA-Z][a-zA-Z0-9]+@[a-zA-Z.]+$" [formControl]="userNameFormControl"
           [errorStateMatcher]="matcher" placeholder="Ex. abc@gmail.com">
@@ -38,8 +42,8 @@
           User name is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <mat-form-field appearance="outline">
+
+      <mat-form-field appearance="outline" style="margin-right: 7%;">
         <mat-label>Email-id</mat-label>
         <input matInput ngModel pattern="^[a-zA-Z][a-zA-Z0-9]+@[a-zA-Z.]+$" [formControl]="emailFormControl"
           [errorStateMatcher]="matcher" placeholder="Ex. abc@gmail.com">
@@ -53,7 +57,7 @@
       </mat-form-field>
       <br>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" style="margin-right: 7%;">
         <mat-label>Password</mat-label>
         <input matInput ngModel minlength="8" [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
           [type]="hide ? 'password' : 'text'" placeholder="Enter password">
@@ -65,8 +69,8 @@
           Password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <mat-form-field appearance="outline">
+
+      <mat-form-field appearance="outline" style="margin-right: 7%;">
         <mat-label>Confirm password</mat-label>
         <input matInput ngModel minlength="8" [formControl]="confirmPasswordFormControl" [errorStateMatcher]="matcher"
           [type]="hide ? 'password' : 'text'" placeholder="Enter confirm password">
@@ -86,7 +90,7 @@
 
 
       <br> <br>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" style="margin-right: 7%;">
         <mat-label>Mobile number</mat-label>
         <input matInput ngModel pattern="^[7-9][0-9]{9}$" [formControl]="mobileNumberFormControl"
           [errorStateMatcher]="matcher" placeholder="Please enter first name">
@@ -99,8 +103,10 @@
       </mat-form-field>
       <br>
       <mat-card-actions align="center">
-        <a href="http://localhost:4200/user/login" style="margin-right: 35%; margin-left: 7;">Sign in instead</a>
         <button mat-raised-button (click)="registerNow()" style="margin-right: 7%; margin-left: 7;">Register</button>
+      </mat-card-actions>
+      <mat-card-actions align="center" style="margin-left: 21%;">
+        <a href="http://localhost:4200/user/login" style="margin-right: 35%; margin-left: 7;">Sign in instead</a>
       </mat-card-actions>
     </form>
   </mat-card>
