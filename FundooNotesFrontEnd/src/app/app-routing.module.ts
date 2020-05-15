@@ -7,11 +7,12 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
-const routes: Routes = [{path:'', component:LoginComponent},
-{path:'user/forgetpassword', component:ForgetpasswordComponent},
-{path:'user/registration', component:RegistrationComponent},
-{path:'user/resetpassword/:token/:emailid', component:ResetpasswordComponent},
-{path:'user/dashboard', component:DashboardComponent},
+const routes: Routes = [{ path: '', component: LoginComponent },
+{ path: 'user/login', component: LoginComponent },
+{ path: 'user/forgetpassword', component: ForgetpasswordComponent },
+{ path: 'user/registration', component: RegistrationComponent },
+{ path: 'user/resetpassword/:token/:emailid', component: ResetpasswordComponent },
+{ path: 'user/dashboard', component: DashboardComponent },
 
 
 ];
