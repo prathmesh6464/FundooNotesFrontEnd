@@ -12,12 +12,14 @@
 .form-size {
 	min-width: 20%;
 	min-height: 35%;
+	padding: 2%;
 }
 
 button {
 	background-color: dodgerblue;
 	margin: 6px;
 	text-align: center;
+	margin: 2%;
 }
 
 .title{
@@ -27,6 +29,7 @@ padding: 15px;
 
 a {
 	text-align: right;
+	margin: 2%;
 }
 
 .example-form {
