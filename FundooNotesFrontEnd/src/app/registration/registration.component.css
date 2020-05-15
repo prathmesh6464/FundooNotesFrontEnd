@@ -30,6 +30,13 @@ a {
 .title{
 	text-align: center; 
 	padding: 3%;
+	padding-bottom: 5%;
+}
+
+.icon {
+	text-align: center;
+	padding-top: 1.7%;
+	padding-bottom: 2.5%;
 }
 
 mat-form-field {
