@@ -1,39 +1,45 @@
-<div fxLayoutAlign="center center" class="loginfx" fxFlexFill > 
-    <mat-card class="formbg" class="form-size">
-        <mat-card-title class="title">Please Login</mat-card-title>
-        <form fxLayoutAlign="strech" fxLayout="column"> 
+<div fxLayoutAlign="center center" class="loginfx" fxFlexFill>
+  <mat-card class="formbg" class="form-size">
+    <mat-card-title class="title">
+      <img src="..\\assets\\images\\keep_48dp.png">
+      <label style="color: dodgerblue;"> Fundoo<span style="color:gold">Notes</span></label>
+    </mat-card-title>
+    <mat-card-title class="title">Please Login</mat-card-title>
+    <form fxLayoutAlign="strech" fxLayout="column">
 
-            <mat-form-field appearance="outline">
-                <mat-label>User name</mat-label>
-                <input matInput [formControl]="userNameFormControl" [errorStateMatcher]="matcher"
-                    placeholder="Ex. abc@gmail.com">
-                <mat-error *ngIf="userNameFormControl.hasError('email') && !userNameFormControl.hasError('required')">
-                  Please enter a valid user name
-                </mat-error>
-                <mat-error *ngIf="userNameFormControl.hasError('required')">
-                  User name is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>User name</mat-label>
+        <input matInput [formControl]="userNameFormControl" [errorStateMatcher]="matcher"
+          placeholder="Ex. abc@gmail.com">
+        <mat-error *ngIf="userNameFormControl.hasError('email') && !userNameFormControl.hasError('required')">
+          Please enter a valid user name
+        </mat-error>
+        <mat-error *ngIf="userNameFormControl.hasError('required')">
+          User name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Password</mat-label>
-                <input matInput ngModel minlength="8" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" [type]="hide ? 'password' : 'text'" placeholder="Enter password">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>               
-                </button>
-                <mat-error *ngIf="!passwordFormControl.hasError('length') && !passwordFormControl.hasError('required')">
-                    Password minimum length should be 8 characters
-                  </mat-error>
-                  <mat-error *ngIf="passwordFormControl.hasError('required')">
-                    Password is <strong>required</strong>
-                  </mat-error>
-            </mat-form-field>
-            
-            <button mat-raised-button type="submit" (click)="loginNow()">Login</button> 
-            <button mat-raised-button><a href="http://localhost:4200/user/registration">Register</a></button>            
-            <a href="http://localhost:4200/user/forgetpassword">
-                Forget Password ?
-            </a>            
-        </form>
-    </mat-card>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput ngModel minlength="8" [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+          [type]="hide ? 'password' : 'text'" placeholder="Enter password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="!passwordFormControl.hasError('length') && !passwordFormControl.hasError('required')">
+          Password minimum length should be 8 characters
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" (click)="loginNow()">Login</button>
+      <button mat-raised-button><a href="http://localhost:4200/user/registration">Register</a></button>
+      <a href="http://localhost:4200/user/forgetpassword">
+        Forget Password ?
+      </a>
+    </form>
+  </mat-card>
 </div>
