@@ -18,7 +18,6 @@ import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
 
@@ -46,7 +45,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatListModule,
     MatSidenavModule,
 
 
