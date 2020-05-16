@@ -1,11 +1,11 @@
 <div fxLayoutAlign="center center" fxFlexFill class="registrationfx">
   <mat-card class="formbg" class="form-size" fxLayout="column">
-    <mat-card-title class="icon">
+    <mat-card-title class="icon" fxLayout="row" fxLayoutAlign="center center">
       <img src="..\\assets\\images\\keep_48dp.png">
       <label style="color: dodgerblue;"> Fundoo<span style="color:gold">Notes</span></label>
     </mat-card-title>
     <mat-card-title class="title">Register User</mat-card-title>
-    <form>
+    <form style="padding-left: 7%;">
       <mat-form-field appearance="outline" style="margin-right: 7%;">
         <mat-label>First name</mat-label>
         <input matInput ngModel pattern="^[a-zA-Z]+$" [formControl]="firstNameFormControl" [errorStateMatcher]="matcher"
