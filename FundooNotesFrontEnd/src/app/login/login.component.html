@@ -1,6 +1,6 @@
 <div fxLayoutAlign="center center" class="loginfx" fxFlexFill>
   <mat-card class="formbg" class="form-size">
-    <mat-card-title class="icon">
+    <mat-card-title class="icon" fxLayout="row" fxLayoutAlign="center center">
       <img src="..\\assets\\images\\keep_48dp.png">
       <label style="color: dodgerblue;"> Fundoo<span style="color:gold">Notes</span></label>
     </mat-card-title>
@@ -34,9 +34,11 @@
           Password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
+      <mat-card-title class="icon" fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button type="submit" (click)="loginNow()" style="margin-right: 7%;">Login</button>
+        <button mat-raised-button><a href="http://localhost:4200/user/registration">Register</a></button>
+      </mat-card-title>
 
-      <button mat-raised-button type="submit" (click)="loginNow()">Login</button>
-      <button mat-raised-button><a href="http://localhost:4200/user/registration">Register</a></button>
       <a href="http://localhost:4200/user/forgetpassword">
         Forget Password ?
       </a>
