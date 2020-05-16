@@ -17,7 +17,6 @@ mat-sidenav, mat-sidenav-content {
 }
 
 mat-sidenav {
-    background-color: whitesmoke;
+    background-color: whitesmokeadd;
     width: 200px;
 }
-
