@@ -97,7 +97,7 @@ export class RegistrationComponent implements OnInit {
     }
 
     if ((this.message.toLowerCase().search("successfully")) != -1) {
-      this.router.navigate(['user/dashboard']);
+      this.router.navigate(['user/login']);
     }
   }
 }
