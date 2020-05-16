@@ -1,76 +1,77 @@
-<mat-toolbar>
-  <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center" class="page">
-    <mat-toolbar-row>
-      <div>
-        <mat-sidenav-container>
+<div fxLayout="column" fxFlex>
+  <mat-toolbar>
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center" class="page">
+      <mat-toolbar-row>
+        <div>
+          <mat-sidenav-container>
+            <mat-sidenav-content>
+              <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+              </button>
+            </mat-sidenav-content>
+          </mat-sidenav-container>
+        </div>
+        <div style="margin-left: 2%;">
+          <img src="..\\assets\\images\\keep_48dp.png">
+        </div>
+        <div style="margin-left: 1%;">
+          <label style="color: yellowgreen;">Fundoo<span style="color:gold">Notes</span></label>
+        </div>
+        <div style="margin-left: 11%; ">
+          <label> <button mat-icon-button>
+              <mat-icon>search</mat-icon>
+            </button></label>
+          <input class="search" matInput placeholder="Search">
+        </div>
+      </mat-toolbar-row>
 
-          <mat-sidenav-content>
-            <button mat-icon-button (click)="sidenav.toggle()">
-              <mat-icon>menu</mat-icon>
-            </button>
-          </mat-sidenav-content>
-        </mat-sidenav-container>
-      </div>
-      <div style="margin-left: 2%;">
-        <img src="..\\assets\\images\\keep_48dp.png">
-      </div>
-      <div style="margin-left: 1%;">
-        <label style="color: yellowgreen;">Fundoo<span style="color:gold">Notes</span></label>
-      </div>
-      <div style="margin-left: 11%; ">
-        <label> <button mat-icon-button>
-            <mat-icon>search</mat-icon>
-          </button></label>
-        <input class="search" matInput placeholder="Search">
-      </div>
+      <mat-toolbar-row fxLayout="row" fxLayoutAlign="end center">
+        <div>
+          <button mat-icon-button>
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>view_list</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>account_circle</mat-icon>
+          </button>
+        </div>
+      </mat-toolbar-row>
     </mat-toolbar-row>
+  </mat-toolbar>
 
-    <mat-toolbar-row fxLayout="row" fxLayoutAlign="end center">
-      <div>
-        <button mat-icon-button>
-          <mat-icon>refresh</mat-icon>
-        </button>
-      </div>
-      <div>
-        <button mat-icon-button>
-          <mat-icon>view_list</mat-icon>
-        </button>
-      </div>
-      <div>
-        <button mat-icon-button>
-          <mat-icon>settings</mat-icon>
-        </button>
-      </div>
-      <div>
-        <button mat-icon-button>
-          <mat-icon>account_circle</mat-icon>
-        </button>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar-row>
-</mat-toolbar>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button><br>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>emoji_objects</mat-icon>
+    </button>Notes<br>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>notifications</mat-icon>
+    </button>Reminder<br>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>label</mat-icon>
+    </button>Label<br>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>create</mat-icon>
+    </button>Edite labels<br>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>archive</mat-icon>
+    </button>Archive<br>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>delete</mat-icon>
+    </button>Trash<br>
 
-<mat-sidenav #sidenav mode="side" [(opened)]="opened">
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button><br>
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>emoji_objects</mat-icon>
-  </button>Notes<br>
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>notifications</mat-icon>
-  </button>Reminder<br>
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>label</mat-icon>
-  </button>Label<br>
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>create</mat-icon>
-  </button>Edite Label<br>
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>archive</mat-icon>
-  </button>Archive<br>
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>Trash</mat-icon>
-  </button>Delete<br>
-
-</mat-sidenav>
+  </mat-sidenav>
+  <div>
