@@ -50,13 +50,17 @@ export class LoginComponent implements OnInit {
   loginNow() {
     let response = this.loginApiService.userLogin(new LoginDto(this.userLoginFormGroup.get('userName').value,
       this.userLoginFormGroup.get('password').value));
-    response.subscribe((data) => this.snackBar.open(this.message = data, this.message.action, {
-      duration: 5000,
-      verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']
-    }));
+    response.subscribe((data) => {
+      if (data.jwtToken.toLowerCase().search("password") == -1) {
+        this.message = data.jwtToken; this.router.navigate(['user/dashboard']);
+      } else {
+        this.snackBar.open(this.message = data.jwtToken, this.message.action, {
+          duration: 5000,
+          verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']
+        })
+      }
+    });
 
-    if ((this.message.toLowerCase().search("successfully")) != -1) {
-      this.router.navigate(['user/dashboard']);
-    }
+
   }
 }
