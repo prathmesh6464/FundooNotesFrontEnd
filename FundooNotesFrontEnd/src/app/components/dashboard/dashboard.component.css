@@ -1,0 +1,87 @@
+.topnav{
+    border-bottom: .5px solid darkgray;
+  }
+
+.shadow:hover {
+    background-color:#E8E8E8;   
+    border-radius: 0px 50px 50px 0px;
+}
+
+.shadow{
+    margin-left: 9%; 
+}
+
+.search {
+   padding: 7%;
+   width: 300%;
+   border-radius: 8px;  
+}
+
+#fixed{
+    width: 7%;
+    padding-left: 2%; 
+}
+
+mat-sidenav-container {
+    height: 100%;    
+}
+
+mat-sidenav {
+  
+    background-color: white;
+    width: 17%;
+}
+
+p {
+    margin-top: 2%;
+    border: 2px solid whitesmoke;
+    width: 25%;
+    height: 2%;
+    padding: 1%;
+    border-radius: 10px;
+    color: grey;   
+    padding: 10px;
+  }
+
+.borderShadow {
+    /* border: 1px solid;
+     padding: 10px;
+    box-shadow: 2px 1px 1px 1px #888888;
+    padding: 1.5%;
+    margin-top: 2%;
+     */ 
+}
+
+.textAreaWidth {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%
+}
+
+.formWidth {
+    width: 100%;
+}
+.sizeOfNotesBox{
+
+    height: 17%;
+    width: 19%;
+}
+
+.noteBox{
+    margin-top: 2%;
+    border-radius: 2px solid whitesmoke;
+}
+
+#sidenav.menu-close {
+   width: 60px;
+   margin-left: 1.2%;
+   
+}
+
+#sidenav.menu-open {
+    width: 280px;
+}
+
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
