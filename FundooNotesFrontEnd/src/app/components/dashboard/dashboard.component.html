@@ -1,0 +1,118 @@
+<div class="topnav">
+  <mat-toolbar>
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center" class="page">
+      <mat-toolbar-row>
+        <div>
+          <button mat-icon-button (click)="onToolBarToggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <div style="margin-left: 2%;">
+          <img src="..\\assets\\images\\keep_48dp.png">
+        </div>
+        <div style="margin-left: 1%;">
+          <label style="color: yellowgreen;">Fundoo<span style="color:gold">Notes</span></label>
+        </div>
+        <div style="margin-left: 11%; margin-bottom: 1.5%;" class="borderShadow">
+          <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+          </button>
+          <input class="text" matInput placeholder="Search">
+        </div>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row fxLayout="row" fxLayoutAlign="end center">
+        <div>
+          <button mat-icon-button (click)="refresh()">
+            <mat-icon>{{refreshVeiw}}</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button (click)="changeView()">
+            <mat-icon>{{view}}</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>account_circle</mat-icon>
+          </button>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" id="sidenav" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen" opened>
+
+    <div class="shadow" style="padding-top:3%" fxLayout="row">
+      <button mat-icon-button (click)="onToolBarToggle()">
+        <mat-icon>emoji_objects</mat-icon>
+      </button><button mat-button (click)="onToolBarToggle()">Notes</button>
+    </div>
+    <br>
+    <div class="shadow" fxLayout="row">
+      <button mat-icon-button (click)="onToolBarToggle()">
+        <mat-icon>notifications_none</mat-icon>
+      </button> <button mat-button (click)="onToolBarToggle()">Reminders</button>
+    </div>
+    <br>
+    <div class="shadow" fxLayout="row">
+      <button mat-icon-button (click)="onToolBarToggle()">
+        <mat-icon>label</mat-icon>
+      </button><button mat-button (click)="onToolBarToggle()">Label</button>
+    </div><br>
+    <div class="shadow" fxLayout="row">
+      <button mat-icon-button (click)="onToolBarToggle()">
+        <mat-icon>create</mat-icon>
+      </button><button mat-button (click)="onToolBarToggle()">Edite labels</button>
+    </div><br>
+    <div class="shadow" fxLayout="row">
+      <button mat-icon-button (click)="onToolBarToggle()">
+        <mat-icon>archive</mat-icon>
+      </button><button mat-button (click)="onToolBarToggle()">Archive</button>
+    </div><br>
+    <div class="shadow" fxLayout="row">
+      <button mat-icon-button (click)="onToolBarToggle()">
+        <mat-icon>delete_outline</mat-icon>
+      </button><button mat-button (click)="onToolBarToggle()">Trash</button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content [ngStyle]="{'margin-left.px': contentMargin}">
+
+
+
+    <form class="formWidth">
+    <mat-accordion hideToggle fxLayoutAlign="center center" class="noteBox">
+      <mat-expansion-panel fxFlex=41% [(expanded)]="viewTitle" style="border-radius: 10px;">
+        <mat-expansion-panel-header fxLayoutAlign="center center" *ngIf="!viewTitle">          
+          <mat-panel-title  >
+            <span style="color: grey;"> Take a note..</span>
+          </mat-panel-title>          
+        </mat-expansion-panel-header>
+
+        
+        <div style="margin: 4%;">
+        <mat-form-field fxLayoutAlign="start start" class="textAreaWidth">
+          <mat-label>Title</mat-label>
+          <textarea matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5">
+        </textarea>          
+        </mat-form-field>
+        <mat-form-field fxLayoutAlign="start start" class="textAreaWidth">        
+          <mat-label>Take a note</mat-label>
+          <textarea matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>      
+      </div>
+      </mat-expansion-panel>      
+    </mat-accordion>
+  </form>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

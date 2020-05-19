@@ -4,21 +4,26 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from './service/user.service';
+import { UserService } from './components/service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { TextFieldModule } from '@angular/cdk/text-field';
+
 
 
 @NgModule({
@@ -28,6 +33,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     routingComponents,
     ResetpasswordComponent,
     DashboardComponent,
+
 
   ],
   imports: [
@@ -45,7 +51,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatTooltipModule,
     MatSidenavModule,
+    MatExpansionModule,
+    TextFieldModule
+
 
 
   ],
