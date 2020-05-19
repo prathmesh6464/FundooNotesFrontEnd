@@ -4,12 +4,13 @@ import { NgModule } from '@angular/core';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { LoginComponent } from './components/login/login.component';
+import { IconsComponent } from './components/icons/icons.component';
+import { UserService } from './components/service/user.service';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from './components/service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -23,10 +24,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatExpansionModule } from '@angular/material/expansion';
-
 import { TextFieldModule } from '@angular/cdk/text-field';
-
-
 
 @NgModule({
   declarations: [
@@ -35,7 +33,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     routingComponents,
     ResetpasswordComponent,
     DashboardComponent,
-
+    IconsComponent,
 
   ],
   imports: [
@@ -56,9 +54,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatTooltipModule,
     MatSidenavModule,
     MatExpansionModule,
-    TextFieldModule
-
-
+    TextFieldModule,
 
   ],
   providers: [UserService],
