@@ -33,17 +33,6 @@ mat-sidenav {
     width: 17%;
 }
 
-p {
-    margin-top: 2%;
-    border: 2px solid whitesmoke;
-    width: 25%;
-    height: 2%;
-    padding: 1%;
-    border-radius: 10px;
-    color: grey;   
-    padding: 10px;
-  }
-
 .borderShadow {
     /* border: 1px solid;
      padding: 10px;
