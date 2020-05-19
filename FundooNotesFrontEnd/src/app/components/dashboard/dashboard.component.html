@@ -4,7 +4,7 @@
       <mat-toolbar-row>
         <div>
           <button mat-icon-button (click)="onToolBarToggle()">
-            <mat-icon>menu</mat-icon>
+            <mat-icon matTooltip="Show menu">menu</mat-icon>
           </button>
         </div>
         <div style="margin-left: 2%;">
@@ -17,19 +17,19 @@
           <button mat-icon-button>
             <mat-icon>search</mat-icon>
           </button>
-          <input class="text" matInput placeholder="Search">
+          <input class="search" matInput placeholder="Search">
         </div>
       </mat-toolbar-row>
 
       <mat-toolbar-row fxLayout="row" fxLayoutAlign="end center">
         <div>
           <button mat-icon-button (click)="refresh()">
-            <mat-icon>{{refreshVeiw}}</mat-icon>
+            <mat-icon matTooltip="Refresh page">{{refreshVeiw}}</mat-icon>
           </button>
         </div>
         <div>
           <button mat-icon-button (click)="changeView()">
-            <mat-icon>{{view}}</mat-icon>
+            <mat-icon matTooltip="Change view">{{view}}</mat-icon>
           </button>
         </div>
         <div>
@@ -46,73 +46,59 @@
 
     <div class="shadow" style="padding-top:3%" fxLayout="row">
       <button mat-icon-button (click)="onToolBarToggle()">
-        <mat-icon>emoji_objects</mat-icon>
+        <mat-icon matTooltip="Notes">emoji_objects</mat-icon>
       </button><button mat-button (click)="onToolBarToggle()">Notes</button>
     </div>
     <br>
     <div class="shadow" fxLayout="row">
       <button mat-icon-button (click)="onToolBarToggle()">
-        <mat-icon>notifications_none</mat-icon>
+        <mat-icon matTooltip="Reminder">notifications_none</mat-icon>
       </button> <button mat-button (click)="onToolBarToggle()">Reminders</button>
     </div>
     <br>
     <div class="shadow" fxLayout="row">
       <button mat-icon-button (click)="onToolBarToggle()">
-        <mat-icon>label</mat-icon>
+        <mat-icon matTooltip="Label">label</mat-icon>
       </button><button mat-button (click)="onToolBarToggle()">Label</button>
     </div><br>
     <div class="shadow" fxLayout="row">
       <button mat-icon-button (click)="onToolBarToggle()">
-        <mat-icon>create</mat-icon>
+        <mat-icon matTooltip="Edite label">create</mat-icon>
       </button><button mat-button (click)="onToolBarToggle()">Edite labels</button>
     </div><br>
     <div class="shadow" fxLayout="row">
       <button mat-icon-button (click)="onToolBarToggle()">
-        <mat-icon>archive</mat-icon>
+        <mat-icon matTooltip="Archive">archive</mat-icon>
       </button><button mat-button (click)="onToolBarToggle()">Archive</button>
     </div><br>
     <div class="shadow" fxLayout="row">
       <button mat-icon-button (click)="onToolBarToggle()">
-        <mat-icon>delete_outline</mat-icon>
+        <mat-icon matTooltip="Delete">delete_outline</mat-icon>
       </button><button mat-button (click)="onToolBarToggle()">Trash</button>
     </div>
   </mat-sidenav>
   <mat-sidenav-content [ngStyle]="{'margin-left.px': contentMargin}">
 
-
-
-    <form class="formWidth">
     <mat-accordion hideToggle fxLayoutAlign="center center" class="noteBox">
-      <mat-expansion-panel fxFlex=41% [(expanded)]="viewTitle" style="border-radius: 10px;">
-        <mat-expansion-panel-header fxLayoutAlign="center center" *ngIf="!viewTitle">          
-          <mat-panel-title  >
-            <span style="color: grey;"> Take a note..</span>
-          </mat-panel-title>          
+      <mat-expansion-panel fxFlex=37% [(expanded)]="viewTitle" style="border-radius: 10px;">
+        <mat-expansion-panel-header fxLayoutAlign="center center" *ngIf="!viewTitle">
+          <mat-panel-title>
+            <span style="color: darkgray;"> Take a note..</span>
+          </mat-panel-title>
         </mat-expansion-panel-header>
-
-        
-        <div style="margin: 4%;">
-        <mat-form-field fxLayoutAlign="start start" class="textAreaWidth">
-          <mat-label>Title</mat-label>
-          <textarea matInput
-          cdkTextareaAutosize
-          #autosize="cdkTextareaAutosize"
-          cdkAutosizeMinRows="1"
-          cdkAutosizeMaxRows="5">
-        </textarea>          
-        </mat-form-field>
-        <mat-form-field fxLayoutAlign="start start" class="textAreaWidth">        
-          <mat-label>Take a note</mat-label>
-          <textarea matInput
-          cdkTextareaAutosize
-          #autosize="cdkTextareaAutosize"
-          cdkAutosizeMinRows="1"
-          cdkAutosizeMaxRows="5"></textarea>
-        </mat-form-field>      
-      </div>
-      </mat-expansion-panel>      
+        <div style="margin: 4%;" fxFlex=100% fxLayout="column" fxLayoutAlign="start start">
+          <div>
+            <textarea class="textAreaWidth" matInput placeholder="Title"></textarea>
+          </div>
+          <div>
+            <textarea class="textAreaWidth" matInput placeholder="Take a note.."></textarea>
+          </div>
+          <div>
+            <app-icons></app-icons>
+          </div>
+        </div>
+      </mat-expansion-panel>
     </mat-accordion>
-  </form>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
