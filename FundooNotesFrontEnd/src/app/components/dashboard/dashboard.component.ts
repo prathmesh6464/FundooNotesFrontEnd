@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { RouterModule } from '@angular/router';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { TextFieldModule } from '@angular/cdk/text-field';
-
-
+import { Component, OnInit, Input } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../service/user.service';
+import { AddNoteDto } from '../dto/AddNoteDto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,9 +17,10 @@ export class DashboardComponent implements OnInit {
   refreshValue = false;
   refreshVeiw = "refresh";
   viewTitle = false;
+  message: string;
+  notes = [];
 
-
-  constructor() { }
+  constructor(private noteApiService: UserService, private router: Router) { }
   ngOnInit(): void {
   }
 
@@ -55,5 +53,22 @@ export class DashboardComponent implements OnInit {
     } else {
       return this.refreshVeiw;
     }
+  }
+
+  titleNoteFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+  descriptionNoteFormControl = new FormControl('',
+    Validators.required,
+  );
+
+  noteFormGroup = new FormGroup({
+    title: this.titleNoteFormControl,
+    description: this.descriptionNoteFormControl
+  });
+
+  receiveOutput($event) {
+    this.notes = $event;
   }
 }
