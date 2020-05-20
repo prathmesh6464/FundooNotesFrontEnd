@@ -45,14 +45,12 @@ export class LoginComponent implements OnInit {
     password: this.passwordFormControl
   });
 
-
-
   loginNow() {
     let response = this.loginApiService.userLogin(new LoginDto(this.userLoginFormGroup.get('userName').value,
       this.userLoginFormGroup.get('password').value));
     response.subscribe((data) => {
       if (data.jwtToken.toLowerCase().search("password") == -1) {
-        this.message = data.jwtToken; this.router.navigate(['user/dashboard']);
+        localStorage.setItem("token", data.jwtToken); this.router.navigate(['user/dashboard']);
       } else {
         this.snackBar.open(this.message = data.jwtToken, this.message.action, {
           duration: 5000,
@@ -60,7 +58,5 @@ export class LoginComponent implements OnInit {
         })
       }
     });
-
-
   }
 }
