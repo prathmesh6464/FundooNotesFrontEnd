@@ -25,6 +25,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { AuthenticationGuard } from './components/authentication/authentication.guard';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatSidenavModule,
     MatExpansionModule,
     TextFieldModule,
+    AuthenticationGuard,
 
   ],
   providers: [UserService],
