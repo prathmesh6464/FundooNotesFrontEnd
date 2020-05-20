@@ -5,6 +5,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthenticationGuard } from './components/authentication/authentication.guard';
 
 const routes: Routes = [{ path: '', component: LoginComponent },
 { path: 'user/login', component: LoginComponent },
@@ -12,7 +13,7 @@ const routes: Routes = [{ path: '', component: LoginComponent },
 { path: 'user/registration', component: RegistrationComponent },
 { path: 'user/resetpassword/:token/:emailid', component: ResetpasswordComponent },
 { path: 'user/dashboard', component: DashboardComponent },
-{ path: 'user/dashboard', component: DashboardComponent },
+{ path: 'special', component: LoginComponent, canActivate: [AuthenticationGuard] }
 
 ];
 
