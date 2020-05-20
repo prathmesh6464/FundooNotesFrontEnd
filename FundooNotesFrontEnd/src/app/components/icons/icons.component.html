@@ -1,6 +1,6 @@
-<div fxLayout="row" class="iconsRowWidth" fxLayoutAlign="space-around center">
+<div fxLayout="row" class="iconsRowWidth" fxLayoutAlign="space-between center" fx>
     <button mat-icon-button>
-        <mat-icon matTooltip="Remind me">notifications_none</mat-icon>
+        <mat-icon matTooltip="Remind me">add_alert</mat-icon>
     </button>
     <button mat-icon-button>
         <mat-icon matTooltip="Collaborator">person_add</mat-icon>
@@ -17,6 +17,7 @@
     <button mat-icon-button>
         <mat-icon matTooltip="More">more_vert</mat-icon>
     </button>
-    <button mat-button (click)="closeNote()" matTooltip="Close note">Close</button>
+    <button mat-button (click)="addNote()" (click)="sendOutputEvent()" matTooltip="Close note"
+        style="margin-left: 23%;">Close</button>
 
 </div>
