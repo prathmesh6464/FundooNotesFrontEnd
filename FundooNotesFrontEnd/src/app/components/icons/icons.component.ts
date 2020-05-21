@@ -14,11 +14,13 @@ import { GetNotesDto } from '../dto/GetNotesDto';
 export class IconsComponent implements OnInit {
 
   message: String;
-  notes = [];
-  @Input() noteFormGroup: any;
-  @Output() sendOutput = new EventEmitter<GetNotesDto[]>();
+  listOfNotes = [];
 
-  constructor(private noteApiService: UserService, private router: Router, private snackBar: MatSnackBar) { }
+  @Input() noteFormGroup: any;
+
+  @Output() sendOutput = new EventEmitter<any>();
+
+  constructor(private snackBar: MatSnackBar, private noteApiService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +30,9 @@ export class IconsComponent implements OnInit {
       this.noteFormGroup.get('description').value));
     response.subscribe((data) => {
       if (data.toLowerCase().search("successfully") != -1) {
-        this.noteApiService.showNotes().subscribe(data => this.notes = data);
+        this.noteApiService.showNotes().subscribe(data => this.listOfNotes = data, data.action);
+        this.listOfNotes.forEach(data => console.log("title : " + data.title + "  description : " + "  " + data.description));
+        this.sendOutput.emit(this.listOfNotes);
       } else {
         this.snackBar.open(this.message = "Please Login !!!", data.action, {
           duration: 5000,
@@ -37,8 +41,12 @@ export class IconsComponent implements OnInit {
       }
     });
   }
+  // sendMesaage() {
+  //   this.sendOutput.emit(this.listOfNotes);
+  // }
 
-  sendOutputEvent() {
-    return this.sendOutput.emit(this.notes);
-  }
+  // clickAll() {
+  //   this.addNote();
+  //   this.sendMesaage();
+  // }
 }
