@@ -26,6 +26,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { AuthenticationGuard } from './components/authentication/authentication.guard';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AuthenticationGuard } from './components/authentication/authentication.
     ResetpasswordComponent,
     DashboardComponent,
     IconsComponent,
+    CardsComponent,
 
   ],
   imports: [
@@ -59,7 +61,7 @@ import { AuthenticationGuard } from './components/authentication/authentication.
     AuthenticationGuard,
 
   ],
-  providers: [UserService],
+  providers: [UserService, IconsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
