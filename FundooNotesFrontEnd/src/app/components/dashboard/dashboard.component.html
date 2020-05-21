@@ -96,18 +96,15 @@
               placeholder="Take a note.."></textarea>
           </div>
           <div>
-            <app-icons [noteFormGroup]="noteFormGroup" (addNote)="receiveOutput($event)"></app-icons>
+            <app-icons [noteFormGroup]="noteFormGroup" (messageEvent)="receiveMessage($event)"></app-icons>
           </div>
         </div>
       </mat-expansion-panel>
     </mat-accordion>
-    <div *ngFor="let note of notes">
-      <div>
-        <a>{{note.title}}</a>
-      </div>
-      <div>
-        <a>{{note.description}</a>
-      </div>
+    <div>
+      <p>{{notes}}</p>
+      <app-cards [notes]="notes"></app-cards>
     </div>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
