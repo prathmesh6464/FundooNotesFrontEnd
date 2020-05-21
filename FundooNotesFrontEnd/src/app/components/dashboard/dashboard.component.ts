@@ -1,15 +1,20 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../service/user.service';
 import { AddNoteDto } from '../dto/AddNoteDto';
 import { Router } from '@angular/router';
+import { IconsComponent } from '../icons/icons.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+
+export class DashboardComponent implements AfterContentInit {
+
+  @ViewChild(IconsComponent) iconComponentFetch;
+
   isMenuOpen = false;
   contentMargin = 240;
   viewClick = true;
@@ -20,8 +25,11 @@ export class DashboardComponent implements OnInit {
   message: string;
   notes = [];
 
-  constructor(private noteApiService: UserService, private router: Router) { }
-  ngOnInit(): void {
+
+  constructor(private noteApiService: UserService, private router: Router, private iconsComponentFetchData: IconsComponent) { }
+
+  ngAfterContentInit(): void {
+    //   this.notes = this.iconsComponentFetchData.listOfNotes;
   }
 
   onToolBarToggle() {
@@ -68,7 +76,9 @@ export class DashboardComponent implements OnInit {
     description: this.descriptionNoteFormControl
   });
 
-  receiveOutput($event) {
+  receiveMessage($event) {
+    console.log("dashboardvvvvvvvvvvvvvvvvvvvvvv");
     this.notes = $event;
+    console.log("dashboard" + this.notes[6]);
   }
 }
