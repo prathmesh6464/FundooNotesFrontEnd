@@ -1,0 +1,12 @@
+<div style="margin: 4%;" fxFlex=100% fxLayout="column" fxLayoutAlign="start start" *ngFor="let note of listOfNotes">
+    <div>
+        <textarea class="textAreaWidth" [formControl]="titleNoteFormControl" value=note.title></textarea>
+    </div>
+    <div>
+        <textarea class="textAreaWidth" [formControl]="descriptionNoteFormControl" matInput
+            value=note.description></textarea>
+    </div>
+    <div>
+        <app-icons></app-icons>
+    </div>
+</div>
