@@ -73,7 +73,7 @@ export class RegistrationComponent implements OnInit {
     password: this.passwordFormControl,
     confirmPassword: this.confirmPasswordFormControl,
     mobileNumber: this.mobileNumberFormControl,
-    emailId: this.emailFormControl
+    email: this.emailFormControl
 
   });
 
@@ -81,7 +81,7 @@ export class RegistrationComponent implements OnInit {
     let response = this.service.doRegistration(new UserDetailsDto(this.userRegistrationForm.get("firstName").value,
       this.userRegistrationForm.get("lastName").value, this.userRegistrationForm.get("userName").value,
       this.userRegistrationForm.get("password").value, this.userRegistrationForm.get("mobileNumber").value,
-      this.userRegistrationForm.get("emailId").value));
+      this.userRegistrationForm.get("email").value));
 
     if (this.userRegistrationForm.get("password").value !== this.userRegistrationForm.get("confirmPassword").value) {
       this.message = "Password and confirm Password not matched";
@@ -90,14 +90,12 @@ export class RegistrationComponent implements OnInit {
         verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']
       });
     } else {
-      response.subscribe((data) => this.snackBar.open(this.message = data, this.message.action, {
-        duration: 5000,
-        verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']
-      }));
-    }
-
-    if ((this.message.toLowerCase().search("successfully")) != -1) {
-      this.router.navigate(['user/login']);
+      response.subscribe((data) => {
+        this.router.navigate(['user/login']), this.snackBar.open(this.message = data, this.message.action, {
+          duration: 5000,
+          verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']
+        })
+      });
     }
   }
 }
