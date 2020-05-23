@@ -30,23 +30,16 @@ export class IconsComponent implements OnInit {
       this.noteFormGroup.get('description').value));
     response.subscribe((data) => {
       if (data.toLowerCase().search("successfully") != -1) {
-        this.noteApiService.showNotes().subscribe(data => this.listOfNotes = data, data.action);
-        this.listOfNotes.forEach(data => console.log("title : " + data.title + "  description : " + "  " + data.description));
-        this.sendOutput.emit(this.listOfNotes);
+        this.snackBar.open(this.message = data, data.action, {
+          duration: 5000,
+          verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']
+        })
       } else {
-        this.snackBar.open(this.message = "Please Login !!!", data.action, {
+        this.snackBar.open(this.message = "Note not added !!!", data.action, {
           duration: 5000,
           verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']
         })
       }
     });
   }
-  // sendMesaage() {
-  //   this.sendOutput.emit(this.listOfNotes);
-  // }
-
-  // clickAll() {
-  //   this.addNote();
-  //   this.sendMesaage();
-  // }
 }
