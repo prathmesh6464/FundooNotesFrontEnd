@@ -27,19 +27,19 @@ export class UserService {
     return !!localStorage.getItem('token');
   }
 
-  public userResetPassword(resetPasswordDto: ResetPasswordDto) {
+  public userResetPassword(resetPasswordDto: ResetPasswordDto): Observable<any> {
     return this.http.put("http://localhost:8081/user/resetPassword", resetPasswordDto);
   }
 
-  public forgetPassword(forgetPasswordDto: ForgetPasswordDto) {
+  public forgetPassword(forgetPasswordDto: ForgetPasswordDto): Observable<any> {
     return this.http.post("http://localhost:8081/user/forgetPassword", forgetPasswordDto);
   }
 
-  public addNote(addNoteDto: AddNoteDto) {
+  public addNote(addNoteDto: AddNoteDto): Observable<any> {
     return this.http.post("http://localhost:8081/notes/add/" + localStorage.getItem('token'), addNoteDto);
   }
 
-  public showNotes() {
+  public showNotes(): Observable<any> {
     return this.http.get<GetNotesDto[]>("http://localhost:8081/notes/show/" + localStorage.getItem('token'));
   }
 }
