@@ -96,15 +96,13 @@
               placeholder="Take a note.."></textarea>
           </div>
           <div>
-            <app-icons [noteFormGroup]="noteFormGroup" (messageEvent)="receiveMessage($event)"></app-icons>
+            <app-icons [noteFormGroup]="noteFormGroup"></app-icons>
           </div>
         </div>
       </mat-expansion-panel>
     </mat-accordion>
     <div>
-      <p>{{notes}}</p>
-      <app-cards [notes]="notes"></app-cards>
+      <app-cards></app-cards>
     </div>
-
   </mat-sidenav-content>
 </mat-sidenav-container>
