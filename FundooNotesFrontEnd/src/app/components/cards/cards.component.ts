@@ -1,7 +1,7 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IconsComponent } from '../icons/icons.component';
 import { UserService } from '../service/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,32 +10,20 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./cards.component.css']
 })
 
-export class CardsComponent implements AfterContentInit {
-
+export class CardsComponent implements OnInit {
 
   listOfNotes = [];
 
-  constructor(private icon: IconsComponent) { }
+  constructor(private router: Router, private noteApiService: UserService) {
 
-  ngAfterContentInit(): void {
-    this.listOfNotes = this.icon.listOfNotes
-    console.log("xxxxxx " + this.listOfNotes);
   }
 
-  titleNoteFormControl = new FormControl('', [
-    Validators.required,
-  ]);
+  ngOnInit(): void {
+    this.showNotes();
+  }
 
-  descriptionNoteFormControl = new FormControl('',
-    Validators.required,
-  );
-
-  noteFormGroup = new FormGroup({
-    title: this.titleNoteFormControl,
-    description: this.descriptionNoteFormControl
-  });
-
-  // receiveOutput($event) {
-  //   this.listOfNotes = $event;
-  // }
+  showNotes() {
+    let response = this.noteApiService.showNotes();
+    response.subscribe((data) => this.listOfNotes = data)
+  }
 }
