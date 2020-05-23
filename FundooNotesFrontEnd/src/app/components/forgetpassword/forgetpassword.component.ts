@@ -3,7 +3,8 @@ import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup } from '
 import { ErrorStateMatcher } from '@angular/material/core';
 import { UserService } from '../service/user.service';
 import { ForgetPasswordDto } from '../dto/ForgetPasswordDto';
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -24,7 +25,7 @@ export class ForgetpasswordComponent implements OnInit {
   message;
   matcher = new MyErrorStateMatcher();
 
-  constructor(private forgetPasswordService: UserService, private snackBar: MatSnackBar) { }
+  constructor(private forgetPasswordService: UserService, private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -41,10 +42,11 @@ export class ForgetpasswordComponent implements OnInit {
   forgetPassword() {
     let response = this.forgetPasswordService.forgetPassword(new ForgetPasswordDto(this.forgetPasswordGroup.get('emailId').value));
 
-    response.subscribe((data) => this.snackBar.open(this.message = data[0], this.message.action, {
-      duration: 5000,
-      verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']
-    }));
-
+    response.subscribe((data) => {
+      this.router.navigate(['']), this.snackBar.open(this.message = data, this.message.action, {
+        duration: 5000,
+        verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['red-snackbar']
+      })
+    });
   }
 }
