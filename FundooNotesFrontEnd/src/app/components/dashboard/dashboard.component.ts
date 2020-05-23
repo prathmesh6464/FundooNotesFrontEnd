@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../service/user.service';
-import { AddNoteDto } from '../dto/AddNoteDto';
 import { Router } from '@angular/router';
 import { IconsComponent } from '../icons/icons.component';
 
@@ -11,7 +10,7 @@ import { IconsComponent } from '../icons/icons.component';
   styleUrls: ['./dashboard.component.css']
 })
 
-export class DashboardComponent implements AfterContentInit {
+export class DashboardComponent implements OnInit {
 
   @ViewChild(IconsComponent) iconComponentFetch;
 
@@ -23,13 +22,12 @@ export class DashboardComponent implements AfterContentInit {
   refreshVeiw = "refresh";
   viewTitle = false;
   message: string;
-  notes = [];
+
 
 
   constructor(private noteApiService: UserService, private router: Router, private iconsComponentFetchData: IconsComponent) { }
 
-  ngAfterContentInit(): void {
-    //   this.notes = this.iconsComponentFetchData.listOfNotes;
+  ngOnInit(): void {
   }
 
   onToolBarToggle() {
@@ -75,10 +73,4 @@ export class DashboardComponent implements AfterContentInit {
     title: this.titleNoteFormControl,
     description: this.descriptionNoteFormControl
   });
-
-  receiveMessage($event) {
-    console.log("dashboardvvvvvvvvvvvvvvvvvvvvvv");
-    this.notes = $event;
-    console.log("dashboard" + this.notes[6]);
-  }
 }
