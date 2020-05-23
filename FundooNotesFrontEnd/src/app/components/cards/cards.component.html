@@ -1,14 +1,21 @@
-<div style="margin: 4%;" fxFlex=100% fxLayout="column" fxLayoutAlign="start start" *ngFor="let note of notes">
-    <div>
-        {{note}}}
-        <!-- <textarea class="textAreaWidth" [formControl]="titleNoteFormControl" value={{note.title}}></textarea> -->
-    </div>
-    <div>
-        {{note.description}}
-        <!-- <textarea class="textAreaWidth" [formControl]="descriptionNoteFormControl" matInput
-            value={{note.description}}></textarea> -->
-    </div>
-    <div>
-        <app-icons></app-icons>
+<div fxLayout="center center">
+    <div fxLayout="column wrap" style="margin-left: 5%;" *ngFor="let note of listOfNotes">
+        <mat-card>
+            <div>
+
+                <div fxFlex=100% style="margin-top: 5%;" fxLayout="column" fxLayoutAlign="start start">
+                    <div>
+                        <textarea class="textAreaWidth" matInput placeholder="Title">{{note.title}}</textarea>
+                    </div>
+                    <div>
+                        <textarea class="textAreaWidth" matInput
+                            placeholder="Take a note..">{{note.description}}</textarea>
+                    </div>
+                </div> <!-- [formControl]="descriptionNoteFormControl" [formControl]="titleNoteFormControl" -->
+            </div>
+            <div>
+                <app-icons></app-icons>
+            </div>
+        </mat-card>
     </div>
 </div>
